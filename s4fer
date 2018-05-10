@@ -1,0 +1,20 @@
+#!/bin/bash
+set -x
+i=0.01
+f=0.1
+e=100
+n=30000
+m=200000
+g=8
+d = 0.5
+for d in 0.7 0.5
+do
+for i in 0.1 0.01 #0.001
+do
+for cm in nolx 227 org # change mode 
+do
+  t=train_dir_i{$i}_f{$f}_d{$d}_e{$e}_n{$n}_m{$m}_cm{$cm}
+  python3 multi_train_lx.py  -i $i -f $f -d $d -e $e -n $n -m $m  -g $g -t $t -c $cm 
+done
+done
+done
